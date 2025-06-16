@@ -8,5 +8,9 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">03@March$2025</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
     </session-factory>
 </hibernate-configuration>

@@ -11,19 +11,22 @@ public class Main {
     public static void main(String[] args) {
         Student s1 = new Student();
         s1.setsAge(23);
-        s1.setRollNo(1);
-        s1.setsName("ram");
+        s1.setRollNo(5);
+        s1.setsName("hanuman");
 
-        Configuration cf = new Configuration();
-        cf.addAnnotatedClass(org.example.Student.class); // for this we enable annotaion first annotaion is Entity
-        cf.configure();
-        SessionFactory sf = cf.buildSessionFactory();
+        SessionFactory sf =new Configuration()
+                               .addAnnotatedClass(org.example.Student.class)
+                               .configure()
+                               .buildSessionFactory();
+
         Session session = sf.openSession();
 
         Transaction transaction = session.beginTransaction();
 
-        session.save(s1);
+        session.persist(s1);
+
         transaction.commit();
+        session.close();
 
         System.out.print(s1);
     }
